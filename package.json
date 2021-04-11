@@ -1,10 +1,10 @@
 {
-  "name": "socail-media-Manjula",
+  "name": "socailmediamanjula",
   "version": "1.0.0",
   "description": "Social media web application",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
