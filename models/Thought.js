@@ -1,6 +1,8 @@
 const { Schema, model, Types } = require("mongoose");
 const moment = require('moment');
 
+// REACTION - SCHEMA ONLY
+
 const ReactionSchema = new Schema(
   {
     //set custom id
@@ -25,11 +27,7 @@ const ReactionSchema = new Schema(
   }
 );
 
-// create Pizza model
-const Reaction = model("Reaction", ReactionSchema);
-
-//export the User model
-module.exports = Reaction;
+//THOUGHT
 
 const ThoughtSchema = new Schema(
   {
@@ -66,3 +64,4 @@ const Thought = model("Thought", ThoughtSchema);
 
 //export the User model
 module.exports = Thought;
+//module.exports = Reaction;

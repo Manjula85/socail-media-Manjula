@@ -13,11 +13,12 @@ const thoughtController = {
       .select("-__v")
       .sort({ _id: -1 })
       .then((dbThoughtData) => {
-        //console.log(dbThoughtData[0].thoughts);
-        //res.json(dbThoughtData[0].thoughts);
+        /*console.log(dbThoughtData[0].thoughts);
+        res.json(dbThoughtData[0].thoughts);
         const length = dbThoughtData.length;
         console.log("Length : " + length);
-        res.json(dbThoughtData[1].thoughts);
+        res.json(dbThoughtData[1].thoughts);*/
+        res.json(dbThoughtData);
 
       })
       .catch((err) => {
@@ -87,7 +88,7 @@ const thoughtController = {
         }
         return User.findOneAndUpdate(
           { _id: params.userId },
-          { $pull: { comment: params.thoughtId } },
+          { $pull: { thoughts: params.thoughtId } },
           { new: true }
         );
       })

@@ -19,7 +19,12 @@ const UserSchema = new Schema(
         ref: "Thought",
       },
     ],
-    friends: [], //self reference??
+    friends: [   // Testing it out
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ], //self reference??
   },
   {
     toJSON: {
