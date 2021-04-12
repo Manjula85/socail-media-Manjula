@@ -8,7 +8,7 @@ const thoughtController = {
       .then(({ _id }) => {
         return User.findOneAndUpdate(
           { _id: params.userId },
-          { $push: { comments: _id } },
+          { $push: { thoughts: _id } },
           { new: true }
         );
       })
@@ -35,6 +35,7 @@ const thoughtController = {
         return;
       }
       res.json(dbUserData);
+      console.log(dbUserData);
     })
     .catch(err => res.json(err));
   },

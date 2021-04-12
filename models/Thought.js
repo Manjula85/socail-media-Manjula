@@ -1,5 +1,5 @@
 const { Schema, model, Types } = require("mongoose");
-const dateFormat = require("../utils/dateFormat");
+const moment = require('moment');
 
 const ReactionSchema = new Schema(
   {
@@ -19,19 +19,11 @@ const ReactionSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: Date.now,
-      get: (createdAtVal) => dateFormat(createdAtVal),
-    },
-  },
-  {
-    toJSON: {
-      getters: true,
-      //virtuals: true
+      default: moment().format('dddd MMM YYYY') 
+      //get: (createdAtVal) => dateFormat(createdAtVal),
     },
   }
 );
-
-//??? not sure
 
 // create Pizza model
 const Reaction = model("Reaction", ReactionSchema);
@@ -49,8 +41,7 @@ const ThoughtSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: Date.now,
-      get: (createdAtVal) => dateFormat(createdAtVal),
+      default: moment().format('dddd MMM YYYY') 
     },
     username: {
       type: String,
@@ -60,7 +51,6 @@ const ThoughtSchema = new Schema(
   },
   {
     toJSON: {
-      getters: true,
       virtuals: true,
     },
     id: false
