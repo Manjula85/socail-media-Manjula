@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Thought } = require("../models");
 
 const userController = {
   //get all users
@@ -58,6 +58,34 @@ const userController = {
         res.json(dbUserData);
       })
       .catch((err) => res.status(400).json(err));
+  },
+
+  addFriend({params,body}, res){
+    Thought.findOneAndUpdate(
+      {_id: params.userId},
+      { $push: { friends: params.friendId}}, //body data should be found within the User list
+      { new: true}
+    )
+    .then((dbFriendData) => {
+      console.log(dbFriendData); //result null???
+      if(!dbFriendData){
+        res.status(404).json({message:"No friend found with this id!"});
+        return;
+      }
+      res.json(dbFriendData);
+    })
+    .catch((err) => res.json(err));
+  },
+
+
+  removeFriend({params}, res){
+    Thought.findOneAndUpdate(
+      {_id: params.userId},
+      { $pull: { friends: params.friendId}},
+      { new: true}
+    )
+    .then((dbFriendData) => res.json(dbFriendData))
+    .catch((err) => res.json(err));
   },
 
   //delete user
