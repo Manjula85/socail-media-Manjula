@@ -27,6 +27,28 @@ const thoughtController = {
       });
   },
 
+  //get one thought by id
+  singleThoughtById({params},res){
+    User.findOne({
+      "thoughts.0": { $exists: true },
+      _id: params.id 
+    })
+      .populate({
+        path: "thoughts",
+        select: "-__v",
+      })
+      .select("-__v")
+      .sort({ _id: -1 })
+      .then((dbThoughtData) => {
+        res.json(dbThoughtData);
+        console.log(dbThoughtData);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(400).json(err);
+      });
+  },
+
   //add thought to User
   addThought({ params, body }, res) {
     console.log(body);
@@ -56,6 +78,7 @@ const thoughtController = {
       { new: true }
     )
       .then((dbThoughtData) => {
+        console.log("add reaction: " + dbThoughtData);
         if (!dbThoughtData) {
           res.status(404).json({ message: "No user found with this id!" });
           return;
@@ -69,7 +92,7 @@ const thoughtController = {
   //remove reaction
   removeReaction({ params }, res) {
     Thought.findOneAndUpdate(
-      { _id: params.commentId },
+      { _id: params.thoughtId },
       { $pull: { reactions: { reactionId: params.reactionId } } },
       { new: true }
     )
