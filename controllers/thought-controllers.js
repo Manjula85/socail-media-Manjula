@@ -3,23 +3,9 @@ const { Thought, User } = require("../models");
 const thoughtController = {
   //all thoughts
   allThought(req, res) {
-    User.find({
-      "thoughts.0": { $exists: true },
-    })
-      .populate({
-        path: "thoughts",
-        select: "-__v",
-      })
-      .select("-__v")
-      .sort({ _id: -1 })
+    Thought.find({})
       .then((dbThoughtData) => {
-        /*console.log(dbThoughtData[0].thoughts);
-        res.json(dbThoughtData[0].thoughts);
-        const length = dbThoughtData.length;
-        console.log("Length : " + length);
-        res.json(dbThoughtData[1].thoughts);*/
         res.json(dbThoughtData);
-
       })
       .catch((err) => {
         console.log(err);
@@ -28,20 +14,14 @@ const thoughtController = {
   },
 
   //get one thought by id
-  singleThoughtById({params},res){
-    User.findOne({
-      "thoughts.0": { $exists: true },
-      _id: params.id 
-    })
-      .populate({
-        path: "thoughts",
-        select: "-__v",
-      })
-      .select("-__v")
-      .sort({ _id: -1 })
+  singleThoughtById({ params }, res) {
+    Thought.findOne({ _id: params.thoughtId })
       .then((dbThoughtData) => {
+        if (!dbThoughtData) {
+          res.status(404).json({ message: "No thought found with this id!" });
+          return;
+        }
         res.json(dbThoughtData);
-        console.log(dbThoughtData);
       })
       .catch((err) => {
         console.log(err);
