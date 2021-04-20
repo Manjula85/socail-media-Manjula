@@ -1,10 +1,7 @@
-# socail-media-Manjula
-Social media web application
-
-# Budget tracking website
+# social-media-Manjula
 
 ## Purpose
-To give users access to track and manage money any time. Even when there is no internet connection!
+To give users access to a social network where they can share thier thoughts, react to friends' thoughts and create a friends list.
 
 ## Built with
 * JavaScript
@@ -12,14 +9,15 @@ To give users access to track and manage money any time. Even when there is no i
 
 ## npm 
 * Express
-* compression
+* Moment
 * mongoose
-* morgan
 * routes
 
-## Category
+## API routes
 
-#### Install App
+### User
+
+#### GET all Users
 ![](/public/images/appInstall.PNG)
 
 #### Offline post
@@ -29,7 +27,7 @@ To give users access to track and manage money any time. Even when there is no i
 ![](/public/images/onlineRepost.PNG)
 
 ## Relevent links
-Heroku link: https://budget-tracker-manjula.herokuapp.com/
+Walkthough video link: 
 
-Git hub link: https://github.com/Manjula85/budget-tracker-Manjula
+Git hub link: https://github.com/Manjula85/social-media-Manjula
 
