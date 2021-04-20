@@ -25,7 +25,7 @@ router.route('/:thoughtId').put(updateThought);
 router.route('/:userId/:thoughtId').delete(removeThought);
 
 router
-    .route('/:thoughtId')
+    .route('/:userId/:thoughtId')
     .put(addReaction)
 
 router.route('/:userId/:thoughtId/:reactionId').delete(removeReaction);
