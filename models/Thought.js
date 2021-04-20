@@ -21,7 +21,7 @@ const ReactionSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: moment().format('dddd MMM YYYY') 
+      default: moment().format('l') 
       //get: (createdAtVal) => dateFormat(createdAtVal),
     },
   }
@@ -39,7 +39,7 @@ const ThoughtSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: moment().format('dddd MMM YYYY') 
+      default: moment().format('l')
     },
     username: {
       type: String,
@@ -54,6 +54,7 @@ const ThoughtSchema = new Schema(
     id: false
   }
 );
+
 
 ThoughtSchema.virtual("reactionCount").get(function () {
   return this.reactions.length;
