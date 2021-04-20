@@ -17,13 +17,13 @@ To give users access to a social network where they can share thier thoughts, re
 
 ### User
 
-#### GET all Users
+* #### GET all Users
 ![](/public/images/appInstall.PNG)
 
-#### Offline post
+* #### Offline post
 ![](/public/images/offlinePost.PNG)
 
-#### Online repost
+* #### Online repost
 ![](/public/images/onlineRepost.PNG)
 
 ## Relevent links
