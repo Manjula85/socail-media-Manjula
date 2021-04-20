@@ -21,7 +21,7 @@ const ReactionSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: moment().format('l') 
+      default: moment().format() 
       //get: (createdAtVal) => dateFormat(createdAtVal),
     },
   }
@@ -39,7 +39,7 @@ const ThoughtSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      default: moment().format('l')
+      default: moment().format()
     },
     username: {
       type: String,
