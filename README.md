@@ -20,7 +20,7 @@ To give users access to a social network where they can share thier thoughts, re
 
 ### Result
 
-![](/images/result.PNG)
+
 
 
 ## Relevent links
