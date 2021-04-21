@@ -15,12 +15,12 @@ To give users access to a social network where they can share thier thoughts, re
 
 ## API routes
 
-![](/public/images/allRoutes.PNG)
+![](/images/allRoutes.PNG)
 
 
 ### Result
 
-![](/public/images/result.PNG)
+![](/images/result.PNG)
 
 
 ## Relevent links
